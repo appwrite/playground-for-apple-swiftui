@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C10FB0AE270D72DD00BD9F9D /* Appwrite in Frameworks */ = {isa = PBXBuildFile; productRef = C10FB0AD270D72DD00BD9F9D /* Appwrite */; };
 		C13F48652700644D00301D6D /* playground_for_appleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C13F48642700644D00301D6D /* playground_for_appleApp.swift */; };
 		C13F48672700644D00301D6D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C13F48662700644D00301D6D /* ContentView.swift */; };
 		C13F48692700644D00301D6D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C13F48682700644D00301D6D /* Assets.xcassets */; };
@@ -14,6 +15,9 @@
 		C13F48762700644E00301D6D /* playground_for_appleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C13F48752700644E00301D6D /* playground_for_appleTests.swift */; };
 		C13F48802700644E00301D6D /* playground_for_appleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C13F487F2700644E00301D6D /* playground_for_appleUITests.swift */; };
 		C13F48822700644E00301D6D /* playground_for_appleUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C13F48812700644E00301D6D /* playground_for_appleUITestsLaunchTests.swift */; };
+		C13F48922700652D00301D6D /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C13F48912700652D00301D6D /* ViewModel.swift */; };
+		C1E6B5E92700AD1800CE8E05 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E6B5E82700AD1800CE8E05 /* ImagePicker.swift */; };
+		C1FB29342700755700E6240E /* NetworkExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1FB29332700755700E6240E /* NetworkExtension.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +48,10 @@
 		C13F487B2700644E00301D6D /* playground-for-appleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "playground-for-appleUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C13F487F2700644E00301D6D /* playground_for_appleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = playground_for_appleUITests.swift; sourceTree = "<group>"; };
 		C13F48812700644E00301D6D /* playground_for_appleUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = playground_for_appleUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		C13F48912700652D00301D6D /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		C1E6B5E82700AD1800CE8E05 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		C1FB29312700755700E6240E /* playground-for-apple.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "playground-for-apple.entitlements"; sourceTree = "<group>"; };
+		C1FB29332700755700E6240E /* NetworkExtension.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NetworkExtension.framework; path = System/Library/Frameworks/NetworkExtension.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +59,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C10FB0AE270D72DD00BD9F9D /* Appwrite in Frameworks */,
+				C1FB29342700755700E6240E /* NetworkExtension.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,6 +88,7 @@
 				C13F48742700644E00301D6D /* playground-for-appleTests */,
 				C13F487E2700644E00301D6D /* playground-for-appleUITests */,
 				C13F48622700644D00301D6D /* Products */,
+				C1FB29322700755700E6240E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -94,10 +105,13 @@
 		C13F48632700644D00301D6D /* playground-for-apple */ = {
 			isa = PBXGroup;
 			children = (
+				C1FB29312700755700E6240E /* playground-for-apple.entitlements */,
 				C13F48642700644D00301D6D /* playground_for_appleApp.swift */,
 				C13F48662700644D00301D6D /* ContentView.swift */,
 				C13F48682700644D00301D6D /* Assets.xcassets */,
 				C13F486A2700644D00301D6D /* Preview Content */,
+				C13F48912700652D00301D6D /* ViewModel.swift */,
+				C1E6B5E82700AD1800CE8E05 /* ImagePicker.swift */,
 			);
 			path = "playground-for-apple";
 			sourceTree = "<group>";
@@ -127,6 +141,14 @@
 			path = "playground-for-appleUITests";
 			sourceTree = "<group>";
 		};
+		C1FB29322700755700E6240E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C1FB29332700755700E6240E /* NetworkExtension.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -143,6 +165,9 @@
 			dependencies = (
 			);
 			name = "playground-for-apple";
+			packageProductDependencies = (
+				C10FB0AD270D72DD00BD9F9D /* Appwrite */,
+			);
 			productName = "playground-for-apple";
 			productReference = C13F48612700644D00301D6D /* playground-for-apple.app */;
 			productType = "com.apple.product-type.application";
@@ -215,6 +240,9 @@
 				Base,
 			);
 			mainGroup = C13F48582700644D00301D6D;
+			packageReferences = (
+				C10FB0AC270D72DD00BD9F9D /* XCRemoteSwiftPackageReference "sdk-for-apple" */,
+			);
 			productRefGroup = C13F48622700644D00301D6D /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -258,6 +286,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				C13F48672700644D00301D6D /* ContentView.swift in Sources */,
+				C1E6B5E92700AD1800CE8E05 /* ImagePicker.swift in Sources */,
+				C13F48922700652D00301D6D /* ViewModel.swift in Sources */,
 				C13F48652700644D00301D6D /* playground_for_appleApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -416,6 +446,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "playground-for-apple/playground-for-apple.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"playground-for-apple/Preview Content\"";
@@ -446,6 +477,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "playground-for-apple/playground-for-apple.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"playground-for-apple/Preview Content\"";
@@ -607,6 +639,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		C10FB0AC270D72DD00BD9F9D /* XCRemoteSwiftPackageReference "sdk-for-apple" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/appwrite/sdk-for-apple";
+			requirement = {
+				branch = dev;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		C10FB0AD270D72DD00BD9F9D /* Appwrite */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C10FB0AC270D72DD00BD9F9D /* XCRemoteSwiftPackageReference "sdk-for-apple" */;
+			productName = Appwrite;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = C13F48592700644D00301D6D /* Project object */;
 }

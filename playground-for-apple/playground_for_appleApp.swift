@@ -11,7 +11,7 @@ import SwiftUI
 struct playground_for_appleApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentView(viewModel: ViewModel())
         }
     }
 }
