@@ -31,11 +31,9 @@ struct ContentView: View {
                         .padding()
                         .frame(width: 250)
                         .background(Color.gray)
-                        
                     }
                     
                     Group {
-                        
                         Button("Subscribe") {
                             viewModel.subscribe()
                         }
@@ -67,7 +65,6 @@ struct ContentView: View {
                     
                     
                     Group {
-                        
                         Button("Login With Facebook") {
                             viewModel.socialLogin(provider: "facebook")
                         }
@@ -90,13 +87,26 @@ struct ContentView: View {
                         .background(Color.red)
                     }
                     
+                    viewModel.downloadedImage?
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(height: 200)
                     
-                    Text(String(viewModel.error ?? "No sessions"))
-                        .foregroundColor(.red)
+                    if(!viewModel.error.isEmpty) {
+                        Text(String(viewModel.error))
+                            .foregroundColor(.red)
+                    }
                     
-                    Text(viewModel.response)
-                        .foregroundColor(.black)
-                        .fixedSize(horizontal: false, vertical: true)
+                    
+                    Text(viewModel.userName)
+                        .foregroundColor(.pink)
+                        .font(.title)
+                    
+                    if(!viewModel.message.isEmpty) {                    
+                        Text(viewModel.message)
+                            .foregroundColor(.black)
+                            .fixedSize(horizontal: false, vertical: true)
+                    }
                     
                     Button("Logout") {
                         viewModel.logOut()

@@ -18,33 +18,43 @@ class ViewModel: ObservableObject {
     
     var collectionId = "608faab562521"
     
-    @Published var error: String?
-    @Published var userName: String?
-    @Published var response: String = ""
+    @Published var error: String = ""
+    @Published var userName: String = "No Session"
+    @Published var message: String = ""
+    @Published var downloadedImage: Image? = nil
+    
+    var fileId: String = ""
     
     init() {
         client = Client()
             .setEndpoint("https://demo.appwrite.io/v1")
             .setProject("608fa1dd20ef0")
         
-        account = Account(client: client)
-        storage = Storage(client: client)
-        database = Database(client: client)
-        realtime = Realtime(client: client)
+        account = Account(client)
+        storage = Storage(client)
+        database = Database(client)
+        realtime = Realtime(client)
+        getAccount()
     }
     
     private func getAccount() {
         account.get() { result in
-            switch result {
-            case .failure(let err):
-                self.error = err.message
-            case .success(var res):
-                DispatchQueue.main.async {
-                    self.response = res.body!.readString(length: res.body!.readableBytes) ?? ""
-                    self.error = "Login successful"
+            DispatchQueue.main.async {
+                switch result {
+                case .failure(let err):
+                    self.error = err.message
+                case .success(let res):
+                    DispatchQueue.main.async {
+                        self.error = ""
+                        if(res.name.isEmpty) {
+                            self.userName = "Anonymous User"
+                        } else {
+                            self.userName = res.name
+                        }
+                    }
                 }
+                
             }
-            
         }
     }
     
@@ -52,7 +62,9 @@ class ViewModel: ObservableObject {
         account.createAnonymousSession() { result in
             switch result {
             case .failure(let err):
-                self.error = err.message
+                DispatchQueue.main.async {
+                    self.error = err.message
+                }
             case .success:
                 self.getAccount()
             }
@@ -63,7 +75,9 @@ class ViewModel: ObservableObject {
         account.createSession(email: "user@appwrite.io", password: "password") {result in
             switch result {
             case .failure(let err):
-                self.error = err.message
+                DispatchQueue.main.async {
+                    self.error = err.message
+                }
             case .success:
                 self.getAccount()
             }
@@ -72,17 +86,35 @@ class ViewModel: ObservableObject {
     
     func subscribe() {
         _ = realtime.subscribe(channels: ["collections.\(collectionId).documents"]) { event in
-            self.response = String(describing: event.payload!)
+            DispatchQueue.main.async {
+                self.message = String(describing: event.payload!)
+            }
         }
     }
     
     func createDoc() {
         database.createDocument(collectionId: collectionId, data: ["username": "user 1"], read: ["*"], write: ["*"]) { result in
-            switch result {
-            case .failure(let err):
-                self.error = err.message
-            case .success(var res):
-                self.response = res.body!.readString(length: res.body!.readableBytes) ?? ""
+            DispatchQueue.main.async {
+                switch result {
+                case .failure(let err):
+                    self.error = err.message
+                case .success(let doc):
+                    DispatchQueue.main.async {
+                        self.message = doc.id
+                    }
+                }
+            }
+        }
+    }
+    
+    func preview() {
+        storage.getFilePreview(fileId: fileId, width: 300) { result in
+            DispatchQueue.main.async {
+                switch result {
+                case .failure(let error): self.message = error.message
+                case .success(let response):
+                    self.downloadedImage = Image(uiImage: UIImage(data: Data(buffer: response))!)
+                }
             }
         }
     }
@@ -94,34 +126,44 @@ class ViewModel: ObservableObject {
         let file = File(name: "file.png", buffer: imageBuffer)
         
         storage.createFile(file: file) { result in
-            switch result {
-            case .failure(let err):
-                self.error = err.message
-            case .success(var res):
-                self.response = res.body!.readString(length: res.body!.readableBytes) ?? ""
+            DispatchQueue.main.async {
+                switch result {
+                case .failure(let err):
+                    self.error = err.message
+                case .success(let file):
+                    DispatchQueue.main.async {
+                        self.message = file.id
+                    }
+                }
             }
         }
     }
     
     func generateJWT() {
         account.createJWT() { result in
-            switch result {
-            case .failure(let err):
-                self.error = err.message
-            case .success(var res):
-                self.response = res.body!.readString(length: res.body!.readableBytes) ?? ""
+            DispatchQueue.main.async {
+                
+                switch result {
+                case .failure(let err):
+                    self.error = err.message
+                case .success(let res):
+                    self.message = res.jwt
+                }
             }
         }
     }
     
     func socialLogin(provider: String) {
         account.createOAuth2Session(provider: provider) { result in
-            switch result {
-            case .failure(let err):
-                self.error = err.message
-            case .success(let res):
-                if res {
-                    self.getAccount()
+            DispatchQueue.main.async {
+                
+                switch result {
+                case .failure(let err):
+                    self.error = err.message
+                case .success(let res):
+                    if res {
+                        self.getAccount()
+                    }
                 }
             }
         }
@@ -134,7 +176,7 @@ class ViewModel: ObservableObject {
                 self.error = err.message
             case .success:
                 self.userName = "No session"
-                self.response = ""
+                self.message = ""
             }
         }
     }
