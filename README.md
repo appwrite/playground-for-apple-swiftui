@@ -4,7 +4,7 @@ Appwrite playground is a simple way to explore the Appwrite API & Appwrite Apple
 
 This is Appwrite Apple integration. For Swift server side integration please look at our [Swift Playground](https://github.com/appwrite/playground-for-swift) and [Swift SDK](https://github.com/appwrite/sdk-for-swift)
 
-![Appwrite Playground](preview.png)
+<img src="preview.png" height="480" />
 
 ## Get Started
 
