@@ -133,6 +133,7 @@ class ViewModel: ObservableObject {
                 case .success(let file):
                     DispatchQueue.main.async {
                         self.message = file.id
+                        self.fileId = file.id
                     }
                 }
             }
