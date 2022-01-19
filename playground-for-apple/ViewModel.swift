@@ -93,7 +93,7 @@ class ViewModel: ObservableObject {
     }
     
     func createDoc() {
-        database.createDocument(collectionId: collectionId, data: ["username": "user 1"], read: ["*"], write: ["*"]) { result in
+        database.createDocument(collectionId: collectionId, documentId: "unique()", data: ["username": "user 1"], read: ["*"], write: ["*"]) { result in
             DispatchQueue.main.async {
                 switch result {
                 case .failure(let err):
@@ -125,7 +125,7 @@ class ViewModel: ObservableObject {
         
         let file = File(name: "file.png", buffer: imageBuffer)
         
-        storage.createFile(file: file) { result in
+        storage.createFile(fileId: "unique()", file: file) { result in
             DispatchQueue.main.async {
                 switch result {
                 case .failure(let err):
