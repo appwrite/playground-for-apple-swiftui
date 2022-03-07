@@ -8,10 +8,10 @@
 import SwiftUI
 
 @main
-struct playground_for_appleApp: App {
+struct PlaygroundApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView(viewModel: ViewModel())
+            PlaygroundView(viewModel: PlaygroundViewModel())
         }
     }
 }
