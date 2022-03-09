@@ -24,49 +24,49 @@ struct PlaygroundView: View {
                         }
                         .padding()
                         .frame(width: 250)
-                        .background(Color.yellow)
+                        .background(.yellow)
                         
                         Button("Create Session") {
                             viewModel.createSession()
                         }
                         .padding()
                         .frame(width: 250)
-                        .background(Color.pink)
+                        .background(.pink)
                         
                         Button("Create Anonymous Session") {
                             viewModel.createAnonymousSession()
                         }
                         .padding()
                         .frame(width: 250)
-                        .background(Color.green)
+                        .background(.green)
                         
                         Button("List Sessions") {
                             viewModel.listSessions()
                         }
                         .padding()
                         .frame(width: 250)
-                        .background(Color.gray)
+                        .background(.gray)
                         
                         Button("Delete Current Session") {
                             viewModel.deleteSession()
                         }
                         .padding()
                         .frame(width: 250)
-                        .background(Color.orange)
+                        .background(.orange)
                         
                         Button("Delete All Sessions") {
                             viewModel.deleteSessions()
                         }
                         .padding()
                         .frame(width: 250)
-                        .background(Color.cyan)
+                        .background(.cyan)
                         
                         Button("Generate JWT") {
                             viewModel.generateJWT()
                         }
                         .padding()
                         .frame(width: 250)
-                        .background(Color.blue)
+                        .background(.blue)
                     }
                     
                     Group {
@@ -75,21 +75,21 @@ struct PlaygroundView: View {
                         }
                         .padding()
                         .frame(width: 250)
-                        .background(Color.gray)
+                        .background(.gray)
                         
                         Button("Login with GitHub") {
                             viewModel.socialLogin(provider: "github")
                         }
                         .padding()
                         .frame(width: 250)
-                        .background(Color.blue)
+                        .background(.blue)
                         
                         Button("Login with Google") {
                             viewModel.socialLogin(provider: "apple")
                         }
                         .padding()
                         .frame(width: 250)
-                        .background(Color.red)
+                        .background(.red)
                     }
                     
                     Group {
@@ -98,36 +98,68 @@ struct PlaygroundView: View {
                         }
                         .padding()
                         .frame(width: 250)
-                        .background(Color.blue)
+                        .background(.blue)
                         
                         Button("List Docs") {
                             viewModel.listDocs()
                         }
                         .padding()
                         .frame(width: 250)
-                        .background(Color.red)
+                        .background(.green)
                         
                         Button("Delete Doc") {
                             viewModel.deleteDoc()
                         }
                         .padding()
                         .frame(width: 250)
-                        .background(Color.blue)
-                        
+                        .background(.pink)
+                    }
+                    
+                    Group {
                         Button("Upload File") {
                             self.isShowPhotoLibrary = true
                         }
                         .padding()
                         .frame(width: 250)
-                        .background(Color.blue)
+                        .background(.orange)
                         
                         Button("List Files") {
                             viewModel.listFiles()
                         }
                         .padding()
                         .frame(width: 250)
-                        .background(Color.blue)
+                        .background(.mint)
                         
+                        Button("Delete File") {
+                            viewModel.deleteFile()
+                        }
+                        .padding()
+                        .frame(width: 250)
+                        .background(.indigo)
+                        
+                    }
+                    
+                    Group {
+                        Button("Create Execution") {
+                            viewModel.createExecution()
+                        }
+                        .padding()
+                        .frame(width: 250)
+                        .background(.blue)
+                        
+                        Button("List Executions") {
+                            viewModel.listExecutions()
+                        }
+                        .padding()
+                        .frame(width: 250)
+                        .background(.green)
+                        
+                        Button("Get Execution") {
+                            viewModel.getExecution()
+                        }
+                        .padding()
+                        .frame(width: 250)
+                        .background(.pink)
                     }
                     
                     Group {
@@ -136,7 +168,7 @@ struct PlaygroundView: View {
                         }
                         .padding()
                         .frame(width: 250)
-                        .background(Color.blue)
+                        .background(.teal)
                     }
                     
                     viewModel.downloadedImage?

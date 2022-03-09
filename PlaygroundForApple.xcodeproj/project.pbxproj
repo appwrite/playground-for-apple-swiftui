@@ -35,7 +35,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		C13F48612700644D00301D6D /* PlaygroundForApple.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PlaygroundForApple.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C13F48612700644D00301D6D /* Playground For Apple.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Playground For Apple.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C13F48642700644D00301D6D /* PlaygroundApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaygroundApp.swift; sourceTree = "<group>"; };
 		C13F48662700644D00301D6D /* PlaygroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaygroundView.swift; sourceTree = "<group>"; };
 		C13F48682700644D00301D6D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -86,7 +86,7 @@
 		C13F48622700644D00301D6D /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				C13F48612700644D00301D6D /* PlaygroundForApple.app */,
+				C13F48612700644D00301D6D /* Playground For Apple.app */,
 				C13F48712700644E00301D6D /* PlaygroundForAppleTests.xctest */,
 				C13F487B2700644E00301D6D /* PlaygroundForAppleUITests.xctest */,
 			);
@@ -142,7 +142,7 @@
 				C10FB0AD270D72DD00BD9F9D /* Appwrite */,
 			);
 			productName = "playground-for-apple";
-			productReference = C13F48612700644D00301D6D /* PlaygroundForApple.app */;
+			productReference = C13F48612700644D00301D6D /* Playground For Apple.app */;
 			productType = "com.apple.product-type.application";
 		};
 		C13F48702700644E00301D6D /* PlaygroundForAppleTests */ = {
@@ -433,8 +433,8 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.popupbits.playground-for-apple";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = io.appwrite.playgroundforswiftui;
+				PRODUCT_NAME = "Playground For Apple";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -463,8 +463,8 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.popupbits.playground-for-apple";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = io.appwrite.playgroundforswiftui;
+				PRODUCT_NAME = "Playground For Apple";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

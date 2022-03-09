@@ -12,17 +12,20 @@ import NIO
 class PlaygroundViewModel: ObservableObject {
     
     let client = Client()
-        .setEndpoint("http://localhost/v1")
-        .setProject("playground-for-swiftui")
+        .setEndpoint("http://192.168.4.23/v1")
+        .setProject("playground-for-swift-ui")
         .setSelfSigned()
     
     let account: Account
     let storage: Storage
     let database: Database
+    let functions: Functions
     let realtime: Realtime
     
     var collectionId = "test"
     var bucketId = "test"
+    var functionId = "test"
+    var executionId = ""
     var userId = ""
     var userEmail = ""
     var documentId = ""
@@ -38,6 +41,7 @@ class PlaygroundViewModel: ObservableObject {
     init() {
         account = Account(client)
         storage = Storage(client)
+        functions = Functions(client)
         database = Database(client)
         realtime = Realtime(client)
         
@@ -142,13 +146,15 @@ class PlaygroundViewModel: ObservableObject {
     
     func deleteSession() {
         account.deleteSession(sessionId: "current") { result in
-            switch result {
-            case .failure(let err):
-                self.dialogText = err.message
-            case .success:
-                self.dialogText = "Session Deleted."
+            DispatchQueue.main.async {
+                switch result {
+                case .failure(let err):
+                    self.dialogText = err.message
+                case .success:
+                    self.dialogText = "Session Deleted."
+                }
+                self.isShowingDialog = true
             }
-            self.isShowingDialog = true
         }
     }
     
@@ -165,8 +171,7 @@ class PlaygroundViewModel: ObservableObject {
             collectionId: collectionId,
             documentId: "unique()",
             data: ["username": "user 1"],
-            read: ["role:all"],
-            write: []
+            read: ["role:all"]
         ) { result in
             DispatchQueue.main.async {
                 switch result {
@@ -254,13 +259,76 @@ class PlaygroundViewModel: ObservableObject {
     }
     
     func listFiles() {
-        storage.listFiles(bucketId: "test") { result in
+        storage.listFiles(bucketId: bucketId) { result in
             DispatchQueue.main.async {
                 switch result {
                 case .failure(let err):
                     self.dialogText = err.message
                 case .success(let files):
-                    self.dialogText = String(describing: files)
+                    self.dialogText = String(describing: files.toMap())
+                }
+                self.isShowingDialog = true
+            }
+        }
+    }
+    
+    func deleteFile() {
+        storage.deleteFile(
+            bucketId: bucketId,
+            fileId: fileId
+        ) { result in
+            DispatchQueue.main.async {
+                switch result {
+                case .failure(let err):
+                    self.dialogText = err.message
+                case .success:
+                    self.dialogText = "File Deleted."
+                }
+                self.isShowingDialog = true
+            }
+        }
+    }
+    
+    func createExecution() {
+        functions.createExecution(functionId: functionId) { result in
+            DispatchQueue.main.async {
+                switch result {
+                case .failure(let err):
+                    self.dialogText = err.message
+                case .success(let execution):
+                    self.executionId = execution.id
+                    self.dialogText = String(describing: execution.toMap())
+                }
+                self.isShowingDialog = true
+            }
+        }
+    }
+    
+    func listExecutions() {
+        functions.listExecutions(functionId: functionId) { result in
+            DispatchQueue.main.async {
+                switch result {
+                case .failure(let err):
+                    self.dialogText = err.message
+                case .success(let executions):
+                    self.dialogText = String(describing: executions.toMap())
+                }
+                self.isShowingDialog = true
+            }
+        }
+    }
+    
+    func getExecution() {
+        functions.getExecution(
+            functionId: functionId,
+            executionId: executionId
+        ) { result in
+            DispatchQueue.main.async {
+                switch result {
+                case .failure(let err):
+                    self.dialogText = err.message
+                case .success(let execution):
+                    self.dialogText = String(describing: execution.toMap())
                 }
                 self.isShowingDialog = true
             }
