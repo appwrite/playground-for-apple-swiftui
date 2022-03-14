@@ -13,7 +13,6 @@ struct ImagePicker: UIViewControllerRepresentable {
     @Binding var selectedImage: UIImage
 
     func makeUIViewController(context: UIViewControllerRepresentableContext<ImagePicker>) -> UIImagePickerController {
-
         let imagePicker = UIImagePickerController()
         imagePicker.allowsEditing = false
         imagePicker.sourceType = sourceType
@@ -31,7 +30,6 @@ struct ImagePicker: UIViewControllerRepresentable {
     }
 
     final class Coordinator: NSObject, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-
         var parent: ImagePicker
 
         init(_ parent: ImagePicker) {
