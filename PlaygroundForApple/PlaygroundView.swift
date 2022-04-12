@@ -20,49 +20,63 @@ struct PlaygroundView: View {
                 VStack {
                     Group {
                         Button("Create Account") {
-                            viewModel.createAccount()
+                            Task {
+                                try! await viewModel.createAccount()
+                            }
                         }
                         .padding()
                         .frame(width: 250)
                         .background(.yellow)
                         
                         Button("Create Session") {
-                            viewModel.createSession()
+                            Task {
+                                try! await viewModel.createSession()
+                            }
                         }
                         .padding()
                         .frame(width: 250)
                         .background(.pink)
                         
                         Button("Create Anonymous Session") {
-                            viewModel.createAnonymousSession()
+                            Task {
+                                try! await viewModel.createAnonymousSession()
+                            }
                         }
                         .padding()
                         .frame(width: 250)
                         .background(.green)
                         
                         Button("List Sessions") {
-                            viewModel.listSessions()
+                            Task {
+                                try! await viewModel.listSessions()
+                            }
                         }
                         .padding()
                         .frame(width: 250)
                         .background(.gray)
                         
                         Button("Delete Current Session") {
-                            viewModel.deleteSession()
+                            Task {
+                                try! await viewModel.deleteSession()
+                            }
                         }
                         .padding()
                         .frame(width: 250)
                         .background(.orange)
                         
                         Button("Delete All Sessions") {
-                            viewModel.deleteSessions()
+                            Task {
+                                try! await viewModel.deleteSessions()
+                            }
                         }
                         .padding()
                         .frame(width: 250)
                         .background(.cyan)
                         
                         Button("Generate JWT") {
-                            viewModel.generateJWT()
+                            Task {
+                                try! await viewModel.generateJWT()
+                            }
                         }
                         .padding()
                         .frame(width: 250)
@@ -71,21 +85,27 @@ struct PlaygroundView: View {
                     
                     Group {
                         Button("Login With Facebook") {
-                            viewModel.socialLogin(provider: "facebook")
+                            Task {
+                                try! await viewModel.socialLogin(provider: "facebook")
+                            }
                         }
                         .padding()
                         .frame(width: 250)
                         .background(.gray)
                         
                         Button("Login with GitHub") {
-                            viewModel.socialLogin(provider: "github")
+                            Task {
+                                try! await viewModel.socialLogin(provider: "github")
+                            }
                         }
                         .padding()
                         .frame(width: 250)
                         .background(.blue)
                         
                         Button("Login with Google") {
-                            viewModel.socialLogin(provider: "apple")
+                            Task {
+                                try! await viewModel.socialLogin(provider: "apple")
+                            }
                         }
                         .padding()
                         .frame(width: 250)
@@ -94,21 +114,27 @@ struct PlaygroundView: View {
                     
                     Group {
                         Button("Create Doc") {
-                            viewModel.createDoc()
+                            Task {
+                                try! await viewModel.createDoc()
+                            }
                         }
                         .padding()
                         .frame(width: 250)
                         .background(.blue)
                         
                         Button("List Docs") {
-                            viewModel.listDocs()
+                            Task {
+                                try! await viewModel.listDocs()
+                            }
                         }
                         .padding()
                         .frame(width: 250)
                         .background(.green)
                         
                         Button("Delete Doc") {
-                            viewModel.deleteDoc()
+                            Task {
+                                try! await viewModel.deleteDoc()
+                            }
                         }
                         .padding()
                         .frame(width: 250)
@@ -124,14 +150,18 @@ struct PlaygroundView: View {
                         .background(.orange)
                         
                         Button("List Files") {
-                            viewModel.listFiles()
+                            Task {
+                                try! await viewModel.listFiles()
+                            }
                         }
                         .padding()
                         .frame(width: 250)
                         .background(.mint)
                         
                         Button("Delete File") {
-                            viewModel.deleteFile()
+                            Task {
+                                try! await viewModel.deleteFile()
+                            }
                         }
                         .padding()
                         .frame(width: 250)
@@ -141,21 +171,27 @@ struct PlaygroundView: View {
                     
                     Group {
                         Button("Create Execution") {
-                            viewModel.createExecution()
+                            Task {
+                                try! await viewModel.createExecution()
+                            }
                         }
                         .padding()
                         .frame(width: 250)
                         .background(.blue)
                         
                         Button("List Executions") {
-                            viewModel.listExecutions()
+                            Task {
+                                try! await viewModel.listExecutions()
+                            }
                         }
                         .padding()
                         .frame(width: 250)
                         .background(.green)
                         
                         Button("Get Execution") {
-                            viewModel.getExecution()
+                            Task {
+                                try! await viewModel.getExecution()
+                            }
                         }
                         .padding()
                         .frame(width: 250)
@@ -181,7 +217,9 @@ struct PlaygroundView: View {
                         .font(.title)
                     
                     Button("Logout") {
-                        viewModel.deleteSession()
+                        Task {
+                            try! await viewModel.deleteSession()
+                        }
                     }
                     .padding()
                     .frame(width: 250)
@@ -203,7 +241,9 @@ struct PlaygroundView: View {
                     
                 }
                 .onChange(of: imageToUpload) { img in
-                    viewModel.uploadFile(image: img)
+                    Task {
+                        try! await viewModel.uploadFile(image: img)
+                    }
                 }
             }.navigationTitle("Appwrite + iOS = ♥️")
         }

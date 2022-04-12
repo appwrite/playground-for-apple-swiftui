@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C10FB0AE270D72DD00BD9F9D /* Appwrite in Frameworks */ = {isa = PBXBuildFile; productRef = C10FB0AD270D72DD00BD9F9D /* Appwrite */; };
+		1D704A9228054B58006135F4 /* Appwrite in Frameworks */ = {isa = PBXBuildFile; productRef = 1D704A9128054B58006135F4 /* Appwrite */; };
 		C13F48652700644D00301D6D /* PlaygroundApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C13F48642700644D00301D6D /* PlaygroundApp.swift */; };
 		C13F48672700644D00301D6D /* PlaygroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C13F48662700644D00301D6D /* PlaygroundView.swift */; };
 		C13F48692700644D00301D6D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C13F48682700644D00301D6D /* Assets.xcassets */; };
@@ -52,7 +52,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C10FB0AE270D72DD00BD9F9D /* Appwrite in Frameworks */,
+				1D704A9228054B58006135F4 /* Appwrite in Frameworks */,
 				C1FB29342700755700E6240E /* NetworkExtension.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -139,7 +139,7 @@
 			);
 			name = PlaygroundForApple;
 			packageProductDependencies = (
-				C10FB0AD270D72DD00BD9F9D /* Appwrite */,
+				1D704A9128054B58006135F4 /* Appwrite */,
 			);
 			productName = "playground-for-apple";
 			productReference = C13F48612700644D00301D6D /* Playground For Apple.app */;
@@ -214,7 +214,7 @@
 			);
 			mainGroup = C13F48582700644D00301D6D;
 			packageReferences = (
-				C10FB0AC270D72DD00BD9F9D /* XCRemoteSwiftPackageReference "sdk-for-apple" */,
+				1D704A9028054B58006135F4 /* XCRemoteSwiftPackageReference "sdk-for-apple" */,
 			);
 			productRefGroup = C13F48622700644D00301D6D /* Products */;
 			projectDirPath = "";
@@ -609,20 +609,20 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		C10FB0AC270D72DD00BD9F9D /* XCRemoteSwiftPackageReference "sdk-for-apple" */ = {
+		1D704A9028054B58006135F4 /* XCRemoteSwiftPackageReference "sdk-for-apple" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/appwrite/sdk-for-apple";
 			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 0.2.0;
+				branch = master;
+				kind = branch;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		C10FB0AD270D72DD00BD9F9D /* Appwrite */ = {
+		1D704A9128054B58006135F4 /* Appwrite */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = C10FB0AC270D72DD00BD9F9D /* XCRemoteSwiftPackageReference "sdk-for-apple" */;
+			package = 1D704A9028054B58006135F4 /* XCRemoteSwiftPackageReference "sdk-for-apple" */;
 			productName = Appwrite;
 		};
 /* End XCSwiftPackageProductDependency section */
