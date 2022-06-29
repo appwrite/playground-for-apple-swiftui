@@ -17,31 +17,12 @@
 		C1FB29342700755700E6240E /* NetworkExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1FB29332700755700E6240E /* NetworkExtension.framework */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		C13F48722700644E00301D6D /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = C13F48592700644D00301D6D /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = C13F48602700644D00301D6D;
-			remoteInfo = "playground-for-apple";
-		};
-		C13F487C2700644E00301D6D /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = C13F48592700644D00301D6D /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = C13F48602700644D00301D6D;
-			remoteInfo = "playground-for-apple";
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
 		C13F48612700644D00301D6D /* Playground For Apple.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Playground For Apple.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C13F48642700644D00301D6D /* PlaygroundApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaygroundApp.swift; sourceTree = "<group>"; };
 		C13F48662700644D00301D6D /* PlaygroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaygroundView.swift; sourceTree = "<group>"; };
 		C13F48682700644D00301D6D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C13F486B2700644D00301D6D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		C13F48712700644E00301D6D /* PlaygroundForAppleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PlaygroundForAppleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		C13F487B2700644E00301D6D /* PlaygroundForAppleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PlaygroundForAppleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C13F48912700652D00301D6D /* PlaygroundViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaygroundViewModel.swift; sourceTree = "<group>"; };
 		C1E6B5E82700AD1800CE8E05 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		C1FB29332700755700E6240E /* NetworkExtension.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NetworkExtension.framework; path = System/Library/Frameworks/NetworkExtension.framework; sourceTree = SDKROOT; };
@@ -54,20 +35,6 @@
 			files = (
 				C10FB0AE270D72DD00BD9F9D /* Appwrite in Frameworks */,
 				C1FB29342700755700E6240E /* NetworkExtension.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		C13F486E2700644E00301D6D /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		C13F48782700644E00301D6D /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -87,8 +54,6 @@
 			isa = PBXGroup;
 			children = (
 				C13F48612700644D00301D6D /* Playground For Apple.app */,
-				C13F48712700644E00301D6D /* PlaygroundForAppleTests.xctest */,
-				C13F487B2700644E00301D6D /* PlaygroundForAppleUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -145,42 +110,6 @@
 			productReference = C13F48612700644D00301D6D /* Playground For Apple.app */;
 			productType = "com.apple.product-type.application";
 		};
-		C13F48702700644E00301D6D /* PlaygroundForAppleTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = C13F48882700644E00301D6D /* Build configuration list for PBXNativeTarget "PlaygroundForAppleTests" */;
-			buildPhases = (
-				C13F486D2700644E00301D6D /* Sources */,
-				C13F486E2700644E00301D6D /* Frameworks */,
-				C13F486F2700644E00301D6D /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				C13F48732700644E00301D6D /* PBXTargetDependency */,
-			);
-			name = PlaygroundForAppleTests;
-			productName = "playground-for-appleTests";
-			productReference = C13F48712700644E00301D6D /* PlaygroundForAppleTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		C13F487A2700644E00301D6D /* PlaygroundForAppleUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = C13F488B2700644E00301D6D /* Build configuration list for PBXNativeTarget "PlaygroundForAppleUITests" */;
-			buildPhases = (
-				C13F48772700644E00301D6D /* Sources */,
-				C13F48782700644E00301D6D /* Frameworks */,
-				C13F48792700644E00301D6D /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				C13F487D2700644E00301D6D /* PBXTargetDependency */,
-			);
-			name = PlaygroundForAppleUITests;
-			productName = "playground-for-appleUITests";
-			productReference = C13F487B2700644E00301D6D /* PlaygroundForAppleUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -193,14 +122,6 @@
 				TargetAttributes = {
 					C13F48602700644D00301D6D = {
 						CreatedOnToolsVersion = 13.0;
-					};
-					C13F48702700644E00301D6D = {
-						CreatedOnToolsVersion = 13.0;
-						TestTargetID = C13F48602700644D00301D6D;
-					};
-					C13F487A2700644E00301D6D = {
-						CreatedOnToolsVersion = 13.0;
-						TestTargetID = C13F48602700644D00301D6D;
 					};
 				};
 			};
@@ -221,8 +142,6 @@
 			projectRoot = "";
 			targets = (
 				C13F48602700644D00301D6D /* PlaygroundForApple */,
-				C13F48702700644E00301D6D /* PlaygroundForAppleTests */,
-				C13F487A2700644E00301D6D /* PlaygroundForAppleUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -234,20 +153,6 @@
 			files = (
 				C13F486C2700644D00301D6D /* Preview Assets.xcassets in Resources */,
 				C13F48692700644D00301D6D /* Assets.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		C13F486F2700644E00301D6D /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		C13F48792700644E00301D6D /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -265,34 +170,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		C13F486D2700644E00301D6D /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		C13F48772700644E00301D6D /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		C13F48732700644E00301D6D /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = C13F48602700644D00301D6D /* PlaygroundForApple */;
-			targetProxy = C13F48722700644E00301D6D /* PBXContainerItemProxy */;
-		};
-		C13F487D2700644E00301D6D /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = C13F48602700644D00301D6D /* PlaygroundForApple */;
-			targetProxy = C13F487C2700644E00301D6D /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		C13F48832700644E00301D6D /* Debug */ = {
@@ -471,102 +349,6 @@
 			};
 			name = Release;
 		};
-		C13F48892700644E00301D6D /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = L834TJ3ANM;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.popupbits.playground-for-appleTests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PlaygroundForApple.app/PlaygroundForApple";
-			};
-			name = Debug;
-		};
-		C13F488A2700644E00301D6D /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = L834TJ3ANM;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.popupbits.playground-for-appleTests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PlaygroundForApple.app/PlaygroundForApple";
-			};
-			name = Release;
-		};
-		C13F488C2700644E00301D6D /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = L834TJ3ANM;
-				GENERATE_INFOPLIST_FILE = YES;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.popupbits.playground-for-appleUITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = "playground-for-apple";
-			};
-			name = Debug;
-		};
-		C13F488D2700644E00301D6D /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = L834TJ3ANM;
-				GENERATE_INFOPLIST_FILE = YES;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.popupbits.playground-for-appleUITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = "playground-for-apple";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -588,24 +370,6 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C13F48882700644E00301D6D /* Build configuration list for PBXNativeTarget "PlaygroundForAppleTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				C13F48892700644E00301D6D /* Debug */,
-				C13F488A2700644E00301D6D /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		C13F488B2700644E00301D6D /* Build configuration list for PBXNativeTarget "PlaygroundForAppleUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				C13F488C2700644E00301D6D /* Debug */,
-				C13F488D2700644E00301D6D /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
@@ -614,7 +378,7 @@
 			repositoryURL = "https://github.com/appwrite/sdk-for-apple";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 0.2.0;
+				minimumVersion = 0.6.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */

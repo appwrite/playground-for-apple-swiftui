@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "C13F48602700644D00301D6D"
-               BuildableName = "PlaygroundForApple.app"
+               BuildableName = "Playground For Apple.app"
                BlueprintName = "PlaygroundForApple"
                ReferencedContainer = "container:PlaygroundForApple.xcodeproj">
             </BuildableReference>
@@ -45,7 +45,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "C13F48602700644D00301D6D"
-            BuildableName = "PlaygroundForApple.app"
+            BuildableName = "Playground For Apple.app"
             BlueprintName = "PlaygroundForApple"
             ReferencedContainer = "container:PlaygroundForApple.xcodeproj">
          </BuildableReference>
@@ -62,7 +62,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "C13F48602700644D00301D6D"
-            BuildableName = "PlaygroundForApple.app"
+            BuildableName = "Playground For Apple.app"
             BlueprintName = "PlaygroundForApple"
             ReferencedContainer = "container:PlaygroundForApple.xcodeproj">
          </BuildableReference>
