@@ -22,7 +22,7 @@ class PlaygroundViewModel: ObservableObject {
     let functions: Functions
     let realtime: Realtime
     
-    var databaseId = "default"
+    var databaseId = "test"
     var collectionId = "test"
     var bucketId = "test"
     var functionId = "test"
@@ -43,7 +43,7 @@ class PlaygroundViewModel: ObservableObject {
         account = Account(client)
         storage = Storage(client)
         functions = Functions(client)
-        database = Databases(client, databaseId)
+        database = Databases(client)
         realtime = Realtime(client)
         
         Task { try! await getAccount() }
@@ -136,7 +136,7 @@ class PlaygroundViewModel: ObservableObject {
     }
     
     func subscribe() {
-        _ = realtime.subscribe(channels: ["collections.\(collectionId).documents"]) { event in
+        _ = realtime.subscribe(channel: "databases.\(databaseId).collections.\(collectionId).documents") { event in
             DispatchQueue.main.async {
                 self.message = String(describing: event.payload!)
             }
@@ -146,10 +146,15 @@ class PlaygroundViewModel: ObservableObject {
     func createDoc() async throws {
         do {
             let doc = try await database.createDocument(
+                databaseId: databaseId,
                 collectionId: collectionId,
                 documentId: "unique()",
                 data: ["username": "user 1"],
-                read: ["role:all"]
+                permissions: [
+                    Permission.read(Role.users()),
+                    Permission.update(Role.users()),
+                    Permission.delete(Role.users())
+                ]
             )
             documentId = doc.id
             dialogText = String(describing: doc.toMap())
@@ -161,7 +166,10 @@ class PlaygroundViewModel: ObservableObject {
     
     func listDocs() async throws {
         do {
-            let docs = try await database.listDocuments(collectionId: collectionId)
+            let docs = try await database.listDocuments(
+                databaseId: databaseId,
+                collectionId: collectionId
+            )
             dialogText = String(describing: docs.toMap())
         } catch {
             dialogText = error.localizedDescription
@@ -172,6 +180,7 @@ class PlaygroundViewModel: ObservableObject {
     func deleteDoc() async throws {
         do {
             _ = try await database.deleteDocument(
+                databaseId: databaseId,
                 collectionId: collectionId,
                 documentId: documentId
             )
@@ -209,7 +218,11 @@ class PlaygroundViewModel: ObservableObject {
                 bucketId: bucketId,
                 fileId: "unique()",
                 file: file,
-                onProgress: nil
+                permissions: [
+                    Permission.read(Role.users()),
+                    Permission.update(Role.users()),
+                    Permission.delete(Role.users()),
+                ]
             )
             fileId = file.id
             dialogText = String(describing: file.toMap())
