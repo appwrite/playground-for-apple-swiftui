@@ -54,7 +54,7 @@ class PlaygroundViewModel: ObservableObject {
         
         do {
             let user = try await account.create(
-                userId: "unique()",
+                userId: ID.unique(),
                 email: userEmail,
                 password: "password"
             )
@@ -148,7 +148,7 @@ class PlaygroundViewModel: ObservableObject {
             let doc = try await database.createDocument(
                 databaseId: databaseId,
                 collectionId: collectionId,
-                documentId: "unique()",
+                documentId: ID.unique(),
                 data: ["username": "user 1"],
                 permissions: [
                     Permission.read(Role.users()),
@@ -216,7 +216,7 @@ class PlaygroundViewModel: ObservableObject {
         do {
             let file = try await storage.createFile(
                 bucketId: bucketId,
-                fileId: "unique()",
+                fileId: ID.unique(),
                 file: file,
                 permissions: [
                     Permission.read(Role.users()),
