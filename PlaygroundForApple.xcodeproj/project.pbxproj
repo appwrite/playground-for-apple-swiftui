@@ -378,7 +378,7 @@
 			repositoryURL = "https://github.com/appwrite/sdk-for-apple";
 			requirement = {
 				kind = exactVersion;
-				version = "1.0.0-RC2";
+				version = 1.0.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */

@@ -12,8 +12,8 @@ import NIO
 class PlaygroundViewModel: ObservableObject {
     
     let client = Client()
-        .setEndpoint("http://192.168.4.23/v1")
-        .setProject("playground-for-swift-ui")
+        .setEndpoint("YOUR_ENDPOINT")
+        .setProject("YOUR_PROJECT_ID")
         .setSelfSigned()
     
     let account: Account
@@ -22,10 +22,10 @@ class PlaygroundViewModel: ObservableObject {
     let functions: Functions
     let realtime: Realtime
     
-    var databaseId = "test"
-    var collectionId = "test"
-    var bucketId = "test"
-    var functionId = "test"
+    var databaseId = "YOUR_DATABASE_ID"
+    var collectionId = "YOUR_COLLECTION_ID"
+    var bucketId = "YOUR_BUCKET_ID"
+    var functionId = "YOUR_FUNCTION_ID"
     var executionId = ""
     var userId = ""
     var userEmail = ""
@@ -107,7 +107,7 @@ class PlaygroundViewModel: ObservableObject {
     
     func listSessions() async throws {
         do {
-            let sessions = try await account.getSessions()
+            let sessions = try await account.listSessions()
             dialogText = String(describing: sessions.toMap())
         } catch {
             dialogText = error.localizedDescription
@@ -149,7 +149,7 @@ class PlaygroundViewModel: ObservableObject {
                 databaseId: databaseId,
                 collectionId: collectionId,
                 documentId: ID.unique(),
-                data: ["username": "user 1"],
+                data: ["username": "Apple SwiftUI"],
                 permissions: [
                     Permission.read(Role.users()),
                     Permission.update(Role.users()),
@@ -168,7 +168,10 @@ class PlaygroundViewModel: ObservableObject {
         do {
             let docs = try await database.listDocuments(
                 databaseId: databaseId,
-                collectionId: collectionId
+                collectionId: collectionId,
+                queries: [
+                    Query.equal("username", value: "Apple SwiftUI")
+                ]
             )
             dialogText = String(describing: docs.toMap())
         } catch {
