@@ -212,9 +212,8 @@ struct PlaygroundView: View {
                         .aspectRatio(contentMode: .fit)
                         .frame(height: 200)
                     
-                    Text(viewModel.userName)
+                    Text(viewModel.message)
                         .foregroundColor(.pink)
-                        .font(.title)
                     
                     Button("Logout") {
                         Task {

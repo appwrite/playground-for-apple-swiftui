@@ -14,8 +14,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/appwrite/sdk-for-apple",
       "state" : {
-        "revision" : "42e094f86c39f3bc28e4d4eda1b994a95d5e772c",
-        "version" : "0.6.0"
+        "revision" : "4854ed68731f4b5b328a6793b8ca47fc7b454e44",
+        "version" : "1.0.0"
       }
     },
     {
