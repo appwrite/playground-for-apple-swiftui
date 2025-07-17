@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C10FB0AE270D72DD00BD9F9D /* Appwrite in Frameworks */ = {isa = PBXBuildFile; productRef = C10FB0AD270D72DD00BD9F9D /* Appwrite */; };
+		B01B5DAF2BF5807200A9743A /* Appwrite in Frameworks */ = {isa = PBXBuildFile; productRef = B01B5DAE2BF5807200A9743A /* Appwrite */; };
+		B08743282D70CE7600B1C0FD /* Appwrite in Frameworks */ = {isa = PBXBuildFile; productRef = B08743272D70CE7600B1C0FD /* Appwrite */; };
 		C13F48652700644D00301D6D /* PlaygroundApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C13F48642700644D00301D6D /* PlaygroundApp.swift */; };
 		C13F48672700644D00301D6D /* PlaygroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C13F48662700644D00301D6D /* PlaygroundView.swift */; };
 		C13F48692700644D00301D6D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C13F48682700644D00301D6D /* Assets.xcassets */; };
@@ -18,6 +19,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B027785D2E25CB0000185D39 /* PlaygroundForApple.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PlaygroundForApple.entitlements; sourceTree = "<group>"; };
+		B072F4142E2599B90022B468 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		C13F48612700644D00301D6D /* Playground For Apple.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Playground For Apple.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C13F48642700644D00301D6D /* PlaygroundApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaygroundApp.swift; sourceTree = "<group>"; };
 		C13F48662700644D00301D6D /* PlaygroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaygroundView.swift; sourceTree = "<group>"; };
@@ -33,17 +36,26 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C10FB0AE270D72DD00BD9F9D /* Appwrite in Frameworks */,
+				B01B5DAF2BF5807200A9743A /* Appwrite in Frameworks */,
 				C1FB29342700755700E6240E /* NetworkExtension.framework in Frameworks */,
+				B08743282D70CE7600B1C0FD /* Appwrite in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B01B5DA92BF57AD300A9743A /* Packages */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Packages;
+			sourceTree = "<group>";
+		};
 		C13F48582700644D00301D6D = {
 			isa = PBXGroup;
 			children = (
+				B01B5DA92BF57AD300A9743A /* Packages */,
 				C13F48632700644D00301D6D /* PlaygroundForApple */,
 				C13F48622700644D00301D6D /* Products */,
 				C1FB29322700755700E6240E /* Frameworks */,
@@ -61,6 +73,8 @@
 		C13F48632700644D00301D6D /* PlaygroundForApple */ = {
 			isa = PBXGroup;
 			children = (
+				B027785D2E25CB0000185D39 /* PlaygroundForApple.entitlements */,
+				B072F4142E2599B90022B468 /* Info.plist */,
 				C13F48642700644D00301D6D /* PlaygroundApp.swift */,
 				C13F48662700644D00301D6D /* PlaygroundView.swift */,
 				C13F48682700644D00301D6D /* Assets.xcassets */,
@@ -104,7 +118,8 @@
 			);
 			name = PlaygroundForApple;
 			packageProductDependencies = (
-				C10FB0AD270D72DD00BD9F9D /* Appwrite */,
+				B01B5DAE2BF5807200A9743A /* Appwrite */,
+				B08743272D70CE7600B1C0FD /* Appwrite */,
 			);
 			productName = "playground-for-apple";
 			productReference = C13F48612700644D00301D6D /* Playground For Apple.app */;
@@ -135,7 +150,7 @@
 			);
 			mainGroup = C13F48582700644D00301D6D;
 			packageReferences = (
-				C10FB0AC270D72DD00BD9F9D /* XCRemoteSwiftPackageReference "sdk-for-apple" */,
+				B08743262D70CE7600B1C0FD /* XCRemoteSwiftPackageReference "sdk-for-apple" */,
 			);
 			productRefGroup = C13F48622700644D00301D6D /* Products */;
 			projectDirPath = "";
@@ -224,7 +239,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -279,7 +294,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -294,18 +309,20 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = PlaygroundForApple/PlaygroundForApple.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"PlaygroundForApple/Preview Content\"";
-				DEVELOPMENT_TEAM = L834TJ3ANM;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = PlaygroundForApple/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -324,18 +341,20 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = PlaygroundForApple/PlaygroundForApple.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"PlaygroundForApple/Preview Content\"";
-				DEVELOPMENT_TEAM = L834TJ3ANM;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = PlaygroundForApple/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -373,20 +392,24 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		C10FB0AC270D72DD00BD9F9D /* XCRemoteSwiftPackageReference "sdk-for-apple" */ = {
+		B08743262D70CE7600B1C0FD /* XCRemoteSwiftPackageReference "sdk-for-apple" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/appwrite/sdk-for-apple";
 			requirement = {
-				kind = exactVersion;
-				version = 1.0.0;
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.0.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		C10FB0AD270D72DD00BD9F9D /* Appwrite */ = {
+		B01B5DAE2BF5807200A9743A /* Appwrite */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = C10FB0AC270D72DD00BD9F9D /* XCRemoteSwiftPackageReference "sdk-for-apple" */;
+			productName = Appwrite;
+		};
+		B08743272D70CE7600B1C0FD /* Appwrite */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B08743262D70CE7600B1C0FD /* XCRemoteSwiftPackageReference "sdk-for-apple" */;
 			productName = Appwrite;
 		};
 /* End XCSwiftPackageProductDependency section */

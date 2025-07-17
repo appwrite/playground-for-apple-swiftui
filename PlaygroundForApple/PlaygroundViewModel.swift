@@ -6,15 +6,16 @@
 //
 
 import SwiftUI
+import AuthenticationServices
 import Appwrite
 import NIO
+import AppwriteEnums
 
 class PlaygroundViewModel: ObservableObject {
     
     let client = Client()
-        .setEndpoint("YOUR_ENDPOINT")
-        .setProject("YOUR_PROJECT_ID")
-        .setSelfSigned()
+        .setEndpoint("https://nyc.cloud.appwrite.io/v1")
+        .setProject("6827997e002f8f83103d")
     
     let account: Account
     let storage: Storage
@@ -22,13 +23,13 @@ class PlaygroundViewModel: ObservableObject {
     let functions: Functions
     let realtime: Realtime
     
-    var databaseId = "YOUR_DATABASE_ID"
-    var collectionId = "YOUR_COLLECTION_ID"
-    var bucketId = "YOUR_BUCKET_ID"
-    var functionId = "YOUR_FUNCTION_ID"
+    var databaseId = "default"
+    var collectionId = "usernames"
+    var bucketId = "<YOUR_BUCKET_ID>"
+    var functionId = "<YOUR_FUNCTION_ID>"
     var executionId = ""
     var userId = ""
-    var userEmail = ""
+    var userEmail = "user@appwrite.io"
     var documentId = ""
     var fileId = ""
     
@@ -51,15 +52,21 @@ class PlaygroundViewModel: ObservableObject {
     
     func createAccount() async throws {
         userEmail = "\(Int.random(in: 1..<Int.max))@example.com"
+        let password = "password"
         
         do {
             let user = try await account.create(
                 userId: ID.unique(),
                 email: userEmail,
-                password: "password"
+                password: password
             )
             userId = user.id
             dialogText = String(describing: user.toMap())
+            
+            _ = try await account.createEmailPasswordSession(
+                email: userEmail,
+                password: password
+            )
             
             try await getAccount()
         } catch {
@@ -80,11 +87,10 @@ class PlaygroundViewModel: ObservableObject {
     
     func createSession() async throws {
         do {
-            let session = try await account.createEmailSession(
+            _ = try await account.createEmailPasswordSession(
                 email: userEmail,
                 password: "password"
             )
-            dialogText = String(describing: session.toMap())
             
             try await getAccount()
         } catch {
@@ -115,6 +121,16 @@ class PlaygroundViewModel: ObservableObject {
         isShowingDialog = true
     }
     
+    func getSession() async throws {
+        do {
+            let session = try await account.getSession(sessionId: "current")
+            dialogText = String(describing: session.toMap())
+        } catch {
+            dialogText = error.localizedDescription
+        }
+        isShowingDialog = true
+    }
+    
     func deleteSessions() async throws {
         do {
             _ = try await account.deleteSessions()
@@ -135,10 +151,16 @@ class PlaygroundViewModel: ObservableObject {
         isShowingDialog = true
     }
     
-    func subscribe() {
-        _ = realtime.subscribe(channel: "databases.\(databaseId).collections.\(collectionId).documents") { event in
+    func subscribe() async {
+        do {
+            _ = try await realtime.subscribe(channel: "databases.\(databaseId).collections.\(collectionId).documents") { event in
+                DispatchQueue.main.async {
+                    self.message = String(describing: event.payload!)
+                }
+            }
+        } catch {
             DispatchQueue.main.async {
-                self.message = String(describing: event.payload!)
+                self.message = String(describing: error.localizedDescription)
             }
         }
     }
@@ -296,15 +318,82 @@ class PlaygroundViewModel: ObservableObject {
         } catch {
             dialogText = error.localizedDescription
         }
+        isShowingDialog = true
     }
     
-    func socialLogin(provider: String) async throws {
+    func socialLogin(provider: OAuthProvider) async throws {
         do {
-            _ = try await account.createOAuth2Session(provider: provider)
-            dialogText = "OAuth Success!"
+            _ = try await account.createOAuth2Session(
+                provider: provider,
+            )
+            try await getAccount()
         } catch {
             dialogText = error.localizedDescription
         }
-        isShowingDialog = true
+    }
+    func handleSignInWithAppleSuccess(with authorization: ASAuthorization) async throws {
+        if let userCredential = authorization.credential as? ASAuthorizationAppleIDCredential {
+            print(userCredential.authorizationCode)
+            print(userCredential.user)
+        
+            if userCredential.authorizedScopes.contains(.fullName) {
+                print(userCredential.fullName)
+            }
+        
+            if userCredential.authorizedScopes.contains(.email) {
+                print(userCredential.email)
+            }
+            
+            do {
+                var body: [String: Any] = [
+                    "code": String(data: userCredential.authorizationCode!, encoding: .utf8)
+                ]
+                
+                if userCredential.fullName != nil {
+                    if let givenName = userCredential.fullName?.givenName {
+                        body["firstName"] = givenName
+                    }
+                    
+                    if let familyName = userCredential.fullName?.familyName {
+                        body["lastName"] = familyName
+                    }
+                }
+                
+                let jsonData = try JSONSerialization.data(withJSONObject: body, options: [])
+                let jsonString = String(data: jsonData, encoding: String.Encoding.utf8)
+                
+                print(jsonString)
+                
+                let functions: Functions = Functions(client);
+                let execution = try await functions.createExecution(
+                    functionId: "sign-in-with-apple",
+                    body: jsonString,
+                    method: ExecutionMethod.pOST,
+                    headers: ["Content-Type": "application/json"]
+                );
+                
+                print(execution.responseStatusCode)
+                if (execution.responseStatusCode != 200) {
+                    dialogText = "Error executing sign-in-with-apple"
+                } else {
+                    print(execution.responseBody)
+                    let responseBodyData = execution.responseBody.data(using: .utf8)
+                    let token = try! JSONDecoder().decode([String : String].self, from: responseBodyData!)
+                    let secret = token["secret"]
+                    let userId = token["userId"]
+                    
+                    print(userId)
+                    print(secret)
+                    
+                    try await account.createSession(userId: userId!, secret: secret!)
+                    
+                    try await getAccount()
+                }
+            } catch {
+                dialogText = error.localizedDescription
+            }
+            
+            isShowingDialog = true
+        }
     }
 }
