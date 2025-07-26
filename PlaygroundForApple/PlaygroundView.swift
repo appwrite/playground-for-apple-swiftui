@@ -6,7 +6,8 @@
 //
 
 import SwiftUI
-import Appwrite
+import AuthenticationServices
+import AppwriteEnums
 
 struct PlaygroundView: View {
     @ObservedObject var viewModel: PlaygroundViewModel
@@ -55,9 +56,9 @@ struct PlaygroundView: View {
                         .frame(width: 250)
                         .background(.gray)
                         
-                        Button("Delete Current Session") {
+                        Button("Get Current Session") {
                             Task {
-                                try await viewModel.deleteSession()
+                                try await viewModel.getSession()
                             }
                         }
                         .padding()
@@ -86,7 +87,7 @@ struct PlaygroundView: View {
                     Group {
                         Button("Login With Facebook") {
                             Task {
-                                try await viewModel.socialLogin(provider: "facebook")
+                                try await viewModel.socialLogin(provider: OAuthProvider.facebook)
                             }
                         }
                         .padding()
@@ -95,21 +96,36 @@ struct PlaygroundView: View {
                         
                         Button("Login with GitHub") {
                             Task {
-                                try await viewModel.socialLogin(provider: "github")
+                                try await viewModel.socialLogin(provider: OAuthProvider.github)
                             }
                         }
                         .padding()
                         .frame(width: 250)
                         .background(.blue)
                         
-                        Button("Login with Google") {
+                        Button("Login with Apple") {
                             Task {
-                                try await viewModel.socialLogin(provider: "apple")
+                                try await viewModel.socialLogin(provider: OAuthProvider.apple)
                             }
                         }
                         .padding()
                         .frame(width: 250)
                         .background(.red)
+                        
+                        SignInWithAppleButton(.signIn) { request in
+                            request.requestedScopes = [.fullName, .email]
+                        } onCompletion: { result in
+                            switch result {
+                            case .success(let authorization):
+                                Task {
+                                    try await viewModel.handleSignInWithAppleSuccess(with: authorization)
+
+                                }
+                            case .failure(let error):
+                                print(error.localizedDescription)
+                            }
+                        }
+                        .frame(width: 250, height: 50)
                     }
                     
                     Group {
@@ -200,7 +216,9 @@ struct PlaygroundView: View {
                     
                     Group {
                         Button("Subscribe") {
-                           viewModel.subscribe()
+                            Task {
+                                await viewModel.subscribe()
+                            }
                         }
                         .padding()
                         .frame(width: 250)
@@ -252,6 +270,6 @@ struct PlaygroundView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        PlaygroundView(viewModel: PlaygroundViewModel())
+        PlaygroundView(viewModel: PlaygroundViewModel()).registerOAuthHandler()
     }
 }
