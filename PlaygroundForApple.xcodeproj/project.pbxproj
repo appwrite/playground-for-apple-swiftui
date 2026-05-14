@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C10FB0AE270D72DD00BD9F9D /* Appwrite in Frameworks */ = {isa = PBXBuildFile; productRef = C10FB0AD270D72DD00BD9F9D /* Appwrite */; };
+		1D1D6FA82AAFCBE80065333E /* Appwrite in Frameworks */ = {isa = PBXBuildFile; productRef = 1D1D6FA72AAFCBE80065333E /* Appwrite */; };
 		C13F48652700644D00301D6D /* PlaygroundApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C13F48642700644D00301D6D /* PlaygroundApp.swift */; };
 		C13F48672700644D00301D6D /* PlaygroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C13F48662700644D00301D6D /* PlaygroundView.swift */; };
 		C13F48692700644D00301D6D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C13F48682700644D00301D6D /* Assets.xcassets */; };
@@ -18,6 +18,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1D1D6FA62AAFCB450065333E /* apple */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = apple; path = "../sdk-generator/examples/apple"; sourceTree = "<group>"; };
+		1DCA4FD62A24510F002FCCFE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		C13F48612700644D00301D6D /* Playground For Apple.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Playground For Apple.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C13F48642700644D00301D6D /* PlaygroundApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaygroundApp.swift; sourceTree = "<group>"; };
 		C13F48662700644D00301D6D /* PlaygroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaygroundView.swift; sourceTree = "<group>"; };
@@ -33,7 +35,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C10FB0AE270D72DD00BD9F9D /* Appwrite in Frameworks */,
+				1D1D6FA82AAFCBE80065333E /* Appwrite in Frameworks */,
 				C1FB29342700755700E6240E /* NetworkExtension.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -41,9 +43,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1D1D6FA52AAFCB450065333E /* Packages */ = {
+			isa = PBXGroup;
+			children = (
+				1D1D6FA62AAFCB450065333E /* apple */,
+			);
+			name = Packages;
+			sourceTree = "<group>";
+		};
 		C13F48582700644D00301D6D = {
 			isa = PBXGroup;
 			children = (
+				1D1D6FA52AAFCB450065333E /* Packages */,
 				C13F48632700644D00301D6D /* PlaygroundForApple */,
 				C13F48622700644D00301D6D /* Products */,
 				C1FB29322700755700E6240E /* Frameworks */,
@@ -61,6 +72,7 @@
 		C13F48632700644D00301D6D /* PlaygroundForApple */ = {
 			isa = PBXGroup;
 			children = (
+				1DCA4FD62A24510F002FCCFE /* Info.plist */,
 				C13F48642700644D00301D6D /* PlaygroundApp.swift */,
 				C13F48662700644D00301D6D /* PlaygroundView.swift */,
 				C13F48682700644D00301D6D /* Assets.xcassets */,
@@ -104,7 +116,7 @@
 			);
 			name = PlaygroundForApple;
 			packageProductDependencies = (
-				C10FB0AD270D72DD00BD9F9D /* Appwrite */,
+				1D1D6FA72AAFCBE80065333E /* Appwrite */,
 			);
 			productName = "playground-for-apple";
 			productReference = C13F48612700644D00301D6D /* Playground For Apple.app */;
@@ -135,7 +147,6 @@
 			);
 			mainGroup = C13F48582700644D00301D6D;
 			packageReferences = (
-				C10FB0AC270D72DD00BD9F9D /* XCRemoteSwiftPackageReference "sdk-for-apple" */,
 			);
 			productRefGroup = C13F48622700644D00301D6D /* Products */;
 			projectDirPath = "";
@@ -300,6 +311,7 @@
 				DEVELOPMENT_TEAM = L834TJ3ANM;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = PlaygroundForApple/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -330,6 +342,7 @@
 				DEVELOPMENT_TEAM = L834TJ3ANM;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = PlaygroundForApple/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -372,21 +385,9 @@
 		};
 /* End XCConfigurationList section */
 
-/* Begin XCRemoteSwiftPackageReference section */
-		C10FB0AC270D72DD00BD9F9D /* XCRemoteSwiftPackageReference "sdk-for-apple" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/appwrite/sdk-for-apple";
-			requirement = {
-				kind = exactVersion;
-				version = 1.0.0;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
 /* Begin XCSwiftPackageProductDependency section */
-		C10FB0AD270D72DD00BD9F9D /* Appwrite */ = {
+		1D1D6FA72AAFCBE80065333E /* Appwrite */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = C10FB0AC270D72DD00BD9F9D /* XCRemoteSwiftPackageReference "sdk-for-apple" */;
 			productName = Appwrite;
 		};
 /* End XCSwiftPackageProductDependency section */

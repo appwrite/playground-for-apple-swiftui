@@ -12,9 +12,8 @@ import NIO
 class PlaygroundViewModel: ObservableObject {
     
     let client = Client()
-        .setEndpoint("YOUR_ENDPOINT")
-        .setProject("YOUR_PROJECT_ID")
-        .setSelfSigned()
+        .setEndpoint("https://cloud.appwrite.io/v1")
+        .setProject("test2")
     
     let account: Account
     let storage: Storage
@@ -53,10 +52,10 @@ class PlaygroundViewModel: ObservableObject {
         userEmail = "\(Int.random(in: 1..<Int.max))@example.com"
         
         do {
-            let user = try await account.create(
+            let user = try await account.createMagicURLSession(
                 userId: ID.unique(),
                 email: userEmail,
-                password: "password"
+                url: "appwrite-callback-test2://192.168.1.7"
             )
             userId = user.id
             dialogText = String(describing: user.toMap())
@@ -64,6 +63,16 @@ class PlaygroundViewModel: ObservableObject {
             try await getAccount()
         } catch {
             dialogText = error.localizedDescription
+        }
+        isShowingDialog = true
+    }
+    
+    func createOAuth2Session() async throws {
+        do {
+            _ = try await account.createOAuth2Session(provider: "facebook")
+            dialogText = "Logged in"
+        } catch {
+            dialogText = "OAUth login failed"
         }
         isShowingDialog = true
     }

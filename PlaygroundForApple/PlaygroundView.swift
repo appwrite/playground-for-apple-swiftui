@@ -30,7 +30,7 @@ struct PlaygroundView: View {
                         
                         Button("Create Session") {
                             Task {
-                                try await viewModel.createSession()
+                                try await viewModel.createOAuth2Session()
                             }
                         }
                         .padding()
@@ -235,6 +235,7 @@ struct PlaygroundView: View {
                         }
                     )
                 }
+                .registerOAuthHandler()
                 .sheet(isPresented: $isShowPhotoLibrary) {
                     ImagePicker(sourceType: .photoLibrary, selectedImage: self.$imageToUpload)
                     
